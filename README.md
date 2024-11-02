@@ -2,6 +2,7 @@ In this program I iplemented an extended TFTP (Trivial File Transfer Protocol) s
 TFTP server is a file transfer protocol allowing multiple users to upload and download files from the server and
 announce when files are added or deleted to the server. The communication between the server and the client(s) is
 performed using a binary communication protocol, which support the upload, download, and lookup of files.
+The server use bi-directional message-passing (send messages to everyone that is logged in when needed).
 The implementation of the server is based on the Thread-Per-Client (TPC) server.
 The client uses two threads one thread is reading input from the user keyboard and the other one reads input from the socket.
 Keyboardthread reads commands from the keyboard and sends packets to the server defined by the command. Listening thread reads packets from the socket and displays messages or sends packets in return.
@@ -38,11 +39,10 @@ DISC
  DATA-Data packet
  ACK-Acknowledgment
  DELRQ- Delete file request
- BCAST-Brodcast file added/deleted
+ BCAST-Brodcast file added/deleted to everyone   
  ERROR
  Disc-Disconnect
- 
- DELRQ
+
 how to run server and client:
 
 ○ Server: from server folder
@@ -53,4 +53,5 @@ mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.tftp.TftpServer" -Dexec.args="<
 ∎ Build using: mvn compile
 ∎ Thread per client server:
 mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.tftp.TftpClient" -Dexec.args="<ip> <port>" (use 127.0.0.1 as ip and 7777 as port)
+In addtion, there is more detailed pdf file that include some running examples
  
