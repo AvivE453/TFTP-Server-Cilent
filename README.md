@@ -31,8 +31,18 @@ DISC
 • Disconnect (Server remove user from Logged-in list) from the server and close the program.
 • Format: DISC
 
- The extended TFTP supports 10 types of messages: LOGRQ, DELRQ, RRQ/WRQ, DIRQ, DATA, ACK,  BCAST, ERROR, Disc.
+ The extended TFTP supports 10 types of messages:
+ LOGRQ-Login request
+ RRQ/WRQ-Read/Write request
+ DIRQ-Directory listing request
+ DATA-Data packet
+ ACK-Acknowledgment
+ DELRQ- Delete file request
+ BCAST-Brodcast file added/deleted
+ ERROR
+ Disc-Disconnect
  
+ DELRQ
 how to run server and client:
 
 ○ Server: from server folder
@@ -42,5 +52,5 @@ mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.tftp.TftpServer" -Dexec.args="<
 ○ Client: from client folder
 ∎ Build using: mvn compile
 ∎ Thread per client server:
-mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.tftp.TftpClient" -Dexec.args="<ip> <port>" (use 127.0.0.1 7777)
+mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.tftp.TftpClient" -Dexec.args="<ip> <port>" (use 127.0.0.1 as ip and 7777 as port)
  
